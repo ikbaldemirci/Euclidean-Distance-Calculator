@@ -1,19 +1,21 @@
-points = [(1, 2), (4, 6), (7, 8), (2, 3)]  # example points
-
-print("Points:", points)
-
-# function
-
 import math
 
 
 def euclideanDistance(point1, point2):
     return math.sqrt((point2[0] - point1[0]) ** 2 + (point2[1] - point1[1]) ** 2)
 
+points = [(1, 2), (4, 6), (7, 8), (2, 3)]
 
-p1 = points[0]
-p2 = points[1]
+distances = []
 
-distance = euclideanDistance(p1,p2)
+for i in range(len(points)):
+    for j in range(i+1, len(points)):
+        distance = euclideanDistance(points[i],points[j])
+        distances.append(distance)
 
-print(distance)
+# minimun distance
+min_distance = min(distances)
+
+print(f"Distances: {distances}")
+print(f"Minimum Distances: {min_distance}")
+
